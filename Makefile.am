@@ -12,7 +12,7 @@ excmd_files = libraries/excmd/src/excmd_exception.h  \
 	libraries/excmd/src/excmd_value_parser.h
 
 
-bin_PROGRAMS = elf2rpl readrpl rplexportgen rplimportgen wuhbtool udplogserver
+bin_PROGRAMS = elf2rpl elf2wps readrpl rplexportgen rplimportgen wuhbtool udplogserver
 
 noinst_LTLIBRARIES      = libfmt.la
 
@@ -33,6 +33,11 @@ elf2rpl_SOURCES	= $(excmd_files) src/elf2rpl/main.cpp
 
 elf2rpl_CPPFLAGS = @ZLIB_CFLAGS@ $(common_CPPFLAGS) ${excmd_CPPFLAGS} ${fmt_CPPFLAGS}
 elf2rpl_LDADD = libfmt.la @ZLIB_LIBS@
+
+elf2wps_SOURCES	= $(excmd_files) src/elf2wps/main.cpp
+
+elf2wps_CPPFLAGS = @ZLIB_CFLAGS@ $(common_CPPFLAGS) ${excmd_CPPFLAGS} ${fmt_CPPFLAGS}
+elf2wps_LDADD = libfmt.la @ZLIB_LIBS@
 
 readrpl_SOURCES = src/readrpl/generate_exports_def.cpp  \
 	src/readrpl/generate_exports_def.h  \
